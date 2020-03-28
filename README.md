@@ -9,14 +9,31 @@ O **CI Cliente Suap OAuth2** implementa a integração com o SUAP, tendo 2 princ
 
 ## Requisitos
 
-- cURL
+- cURL;
 - [CodeIgniter 3.x](https://github.com/bcit-ci/CodeIgniter);
+- $config['base_url'] precisa estar setado em */application/config/config.php*
+
+---
 
 ## Instalação
 
- - Baixe ou Clone este repositório
- - Copie a pasta 
+ Antes da instalação verifique se atende aos resquisitos.
 
+> Mova os arquivos deste pacote seguindo a estrutura:
+
+```shell
+CI                          # → Root Directory
+└── application/
+    ├── config/
+    │   └── suap_auth.php
+    ├── controllers/
+    │   └── Suap_auth.php
+    └── libraries
+        └── Suap_OAuth2.php
+    
+```
+
+---
 
 ## Instruções
 
@@ -26,19 +43,7 @@ Crie sua aplicação em https://suap.ifrn.edu.br/api/ com as seguintes informaç
 
 - **Client Type:** Confidential
 - **Authorization Grant Type:** authorization-code
-- **Redicert URIs**: http://localhost/ci3-suap-oauth2/ (Alterar para o seu servidor)
+- **Redicert URIs**: **SEU_HOST**/suap_auth/ (Alterar para o seu servidor)
+- Configure o **Client_id** e **Client_secret** no arquivo */application/config/suap_auth.php*
 
-### Instalando, Configurando e Rodando o Cliente SUAP Javascript
 
-Considerando que você já tenha clonado o repositório **cliente_suap_javascript**. abra o terminal:
-
-	cd cliente_suap_javascript
-	cp settings.sample.js settings.js
-
-Faça os ajustes necessários, definindo a variável **CLIENT_ID**.
-
-É necessário rodar a aplicação cliente num servidor local (usamos o Python SimpleHTTPServer):
-
-	python -m SimpleHTTPServer 8888
-
-Abra seu browser em http://localhost:8888/
